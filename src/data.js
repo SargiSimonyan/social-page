@@ -1,6 +1,6 @@
 import Password from "antd/es/input/Password";
 
-const data = [
+let data = [
   {
     id: 1,
     username: "sargis",
@@ -9,6 +9,7 @@ const data = [
     lastName: "Simonyan",
     friends: [],
     resources: [],
+    img: "sargisimg.jpg",
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const data = [
     lastName: "Karoyan",
     friends: [],
     resources: [],
+    img: "sahur.avif",
   },
   {
     id: 3,
@@ -27,6 +29,7 @@ const data = [
     lastName: "Cappuchina",
     friends: [],
     resources: [],
+    img: "balerina.png",
   },
 ];
 

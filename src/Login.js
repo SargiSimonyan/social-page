@@ -9,7 +9,6 @@ function Login() {
   const [value1, setValue1] = useState("");
   const [value2, setValue2] = useState("")
   const navigate = useNavigate();
-  // let activeUserId = 0;
   return (
     <div className="App">
       <div className='cont1'>
@@ -37,8 +36,6 @@ function Login() {
             console.log(value1 + " " + value2);
             data.forEach((i)=>{
               if(i.username == value1 && i.password == value2) {
-                // activeUserId = i.id
-                // setActiveUserId(i.id)
                 console.log("it's" + " " + i.username + "s accounte");
                 navigate('/personal', { state: { message: i.id}})
               }
@@ -47,6 +44,15 @@ function Login() {
           }}>
             login
           </Button>
+          <Button onClick={()=>{
+            navigate('/')
+          }}>Back</Button>
+        </Flex>
+        <p style={{opacity: "50%"}}>or</p>
+        <Flex gap="small" wrap>
+          <Button onClick={()=>{
+            navigate('/login/singin')
+          }}>Sing in</Button>
         </Flex>
       </div>
     </div>
