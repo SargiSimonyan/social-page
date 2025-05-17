@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Anchor, Col, Row } from 'antd';
 const style = {
   height: '30vh',
-  backgroundColor: 'rgba(0, 0, 0, 0.85)',
+  backgroundColor: 'rgba(5,41,99,255)',
   position: 'fixed',
   top: 0,
   insetInlineStart: 0,
@@ -16,14 +16,6 @@ const style = {
 export default function OpeningPage () {
   const navigate = useNavigate();
 
-  // return(
-  //   <div className="cont">
-  //     test opening
-  //     <button onClick={()=>{
-  //       navigate('login')
-  //     }}>hi</button>
-  //   </div>
-  // )
   const topRef = React.useRef(null);
   const [targetOffset, setTargetOffset] = useState();
   useEffect(() => {
@@ -31,13 +23,10 @@ export default function OpeningPage () {
     setTargetOffset((_a = topRef.current) === null || _a === void 0 ? void 0 : _a.clientHeight);
   }, []);
   return (
-    <div style={{width: "120%"}}>
+    <div style={{width: "120%", }}>
       <Row>
         <Col span={18}>
-          <div
-            id="part-1"
-            style={{ height: '100vh', background: 'rgba(255,0,0,0.02)', marginTop: '30vh' }}
-          >
+          <div id="part-1" style={{ height: '100vh', background: 'rgba(255,0,0,0.02)', marginTop: '30vh' }}>
             Home
           </div>
           <div id="part-2" style={{ height: '100vh', background: 'rgba(0,255,0,0.02)' }}>
