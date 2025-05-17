@@ -1,7 +1,9 @@
 import './Singin.css';
 import React, { useState } from 'react';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-import { Flex, Button, Input } from 'antd';
+import { Flex, Button, Input, message, Space, Upload  } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+
 import data from './data';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,11 +18,16 @@ let newUser = {
     img: "",
 }
 
+let previewUrl;
+
 export default function Singin() {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [value1, setValue1] = useState("");
   const [value2, setValue2] = useState("");
+  const [photo, setPhoto] = useState(null);
+  const [photoPreview, setPhotoPreview] = useState(null);
+
   const navigate = useNavigate();
   return (
     <div className="App">
@@ -66,7 +73,43 @@ export default function Singin() {
             setValue2(e.target.value)
           }}
         />
-        <br/>
+        {/* <input 
+          type="file"
+          accept="image/*"
+          onChange={(e) => {
+            const file = e.target.files[0];
+            if (file) {
+              setPhoto(file);
+              setPhotoPreview(URL.createObjectURL(file));
+            }
+          }}  
+        /> */}
+          <Space 
+            direction="vertical" 
+            style={{ width: '100%' }} 
+            size="large"
+            onChange={(e) => {
+              const file = e.target.files[0];
+              if (file) {
+                setPhoto(file);
+                setPhotoPreview(URL.createObjectURL(file));
+              }
+            }}
+          >
+            <Upload
+              action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
+              listType="picture"
+              maxCount={1}
+            >
+              <Button icon={<UploadOutlined />}>Upload (Max: 1)</Button>
+            </Upload>
+          </Space>
+        {/* {photoPreview && (
+          <div style={{ marginTop: '10px' }}>
+            <p>Preview:</p>
+            <img src={photoPreview} alt="Preview" style={{ maxWidth: '50px', maxHeight: '50px', borderRadius: '8px' }} />
+          </div>
+        )} */}
         <Flex gap="small" wrap>
           <Button type='primary'onClick={()=>{
             newUser = {
@@ -77,18 +120,18 @@ export default function Singin() {
               lastName: lastName,
               friends: [],
               resources: [],
-              img: "balerina.png",
+              img: photoPreview,
             }
             console.log(newUser);
             data.push(newUser)
             console.log(data);
-            
+            navigate('/login')
             
           }}>
             Confirm
           </Button>
           <Button onClick={()=>{
-            navigate('/')
+            navigate('/login')
           }}>Back</Button>
         </Flex>
       </div>

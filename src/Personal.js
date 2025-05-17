@@ -31,7 +31,7 @@ function Personal () {
   const location = useLocation();
   const message = location.state?.message;
   const items = [
-  getItem('Home', '1', <img src={data[message-1].img} style={{width: "30px", borderRadius: "50%"}}/>),
+  getItem('Home', '1', <img src={data[message-1].img} style={{width: "30px", height: "30px", borderRadius: "50%"}}/>),
   getItem('Option 2', '2', <DesktopOutlined />),
   getItem('User', 'sub1', <UserOutlined />, [
     getItem('Tom', '3'),
@@ -64,7 +64,7 @@ function Personal () {
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>{data[message-1].name}</Breadcrumb.Item>
-            <img src={data[message-1].img} style={{width: "30px", borderRadius: "50%"}}/>
+            <img src={data[message-1].img} style={{width: "30px", height: "30px", borderRadius: "50%"}}/>
           </Breadcrumb>
           <div
             style={{
@@ -75,7 +75,7 @@ function Personal () {
             }}
           >
             Personal page of {data[message-1].name}
-            <img src={data[message-1].img} style={{width: "60px", borderRadius: "50%"}}/>
+            <img src={data[message-1].img} style={{width: "60px", height: "60px", borderRadius: "50%"}}/>
 
           </div>
         </Content>
